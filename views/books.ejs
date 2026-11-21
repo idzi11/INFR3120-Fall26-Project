@@ -21,6 +21,7 @@
                 <td><%= book.author %></td>
                 <td><%= book.genre %></td>
                 <td><%= book.status %></td>
+                <a href="/books/edit/<%= index %>">Edit</a>
                 <td>
                     <form action="/books/delete/<%= index %>" method="POST">
                         <button type="submit">Delete</button>

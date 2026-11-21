@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/main.nav.ejs') %>
+<main class="edit-page">
+    <h1>Edit</h1>
+    <form action="/books/edit/<%= index %>" method="POST">
+        <label>Title</label>
+        <input type="text" name="title" value="<%= book.title %>" required>
+        <label>Author</label>
+        <input type="text" name="author" value="<%= book.author %>" required>
+        <label>Genre</label>
+        <input type="text" name="genre" value="<%= book.genre %>" required>
+        <label>Reading Status</label>
+        <select name="status">
+            <option value="Want to Read" <%= book.status === 'Want to Read' ? 'selected' : '' %>>Plan to Read</option>
+            <option value="Reading" <%= book.status === 'Reading' ? 'selected' : '' %>>Reading</option>
+            <option value="Completed" <%= book.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+        </select>
+        <button type="submit">Save Changes</button>
+    </form>
+</main>
+<%- include('partials/footer.ejs') %>

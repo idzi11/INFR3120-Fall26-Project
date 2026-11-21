@@ -27,11 +27,35 @@ router.post('/delete/:index', function(req, res)
     books.splice(index, 1);
     res.redirect('/books');
 });
+router.get('/edit/:index',function(req, res)
+{
+    var index = req.params.index;
+
+    res.render('edit',
+        {
+        title: 'Edit Book',
+        book:books[index],
+        index: index
+        });
+});
+router.post('/edit/:index', function(req, res)
+{
+    var index= req.params.index;
+    books[index] = 
+    {
+        title: req.body.title,
+        author: req.body.author,
+        genre:req.body.genre,
+        status: req.body.status
+    };
+    res.redirect('/books');
+});
 router.get('/', function(req, res)
 {
-    res.render('books', {
+    res.render('books',
+        {
         title: 'My Collection',
         books: books
-    });
+        });
 });
 module.exports = router;

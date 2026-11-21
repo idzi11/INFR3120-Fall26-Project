@@ -3,3 +3,7 @@ Reference for removing a book from the array using its index with Array.prototyp
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
 Reference for adding submitted book object to the books array with Array.prototype.push()
+
+
+link to Sean Vilela video
+https://youtu.be/Ex3wMDIJ_5I

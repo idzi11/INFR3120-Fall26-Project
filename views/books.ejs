@@ -3,31 +3,31 @@
 <%- include('partials/main.nav.ejs') %>
 
 <main class="books-page">
+    <h1>Collection</h1>
+    <p>Keep track of all books in your collection</p>
+    <a href="/books/add">Add Book</a>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
 
-    <h1>My Book Collection</h1>
-    <p>Keep track of all the books in your reading collection.</p>
-
-    <a href="/books/add">Add a New Book</a>
-
-   <table>
-    <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Genre</th>
-        <th>Reading Status</th>
-    </tr>
-
-    <tr>
-        <td>The Great Gatsby</td>
-        <td>F. Scott Fitzgerald</td>
-        <td>Classic</td>
-        <td>Completed</td>
-    </tr>
-
-    <tr>
-        <td>Dune</td>
-        <td>Frank Herbert</td>
-        <td>Science Fiction</td>
-        <td>Currently Reading</td>
-    </tr>
-</table>
+        <% books.forEach(function(book, index) { %>
+            <tr>
+                <td><%= book.title %></td>
+                <td><%= book.author %></td>
+                <td><%= book.genre %></td>
+                <td><%= book.status %></td>
+                <td>
+                    <form action="/books/delete/<%= index %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+</main>
+<%- include('partials/footer.ejs') %>
